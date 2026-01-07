@@ -1,0 +1,93 @@
+model = "gpt-5.2-codex"
+model_reasoning_effort = "medium"
+
+[features]
+experimental_windows_sandbox = true
+
+[environment.os]
+system = "Windows"
+version = "11"
+arch = "x64"
+shell = "cmd"
+
+[environment.languages]
+java = "17"
+python = false
+node = "20.5.0"
+go = false
+rust = false
+
+[environment.build_tools]
+maven = "3.9.9"
+gradle = false
+npm = "9.8.0"
+pip = false
+
+[environment.cli]
+git = true
+docker = true
+docker_compose = true
+kubectl = false
+make = false
+
+[agent.behavior]
+verify_environment_before_execute = true
+
+[agent.instructions]
+before_execute = """
+在执行任何命令前，必须严格遵循以下规则：
+- 只允许使用 environment 中明确标记为可用的工具
+- 不得假设任何未声明的软件已安装
+- 如需使用未安装工具，必须先询问用户是否允许安装
+"""
+
+[mcp_servers.context7]
+url = "https://mcp.context7.com/mcp"
+http_headers = { "CONTEXT7_API_KEY" = "ctx7sk-693973e8-e8c3-4462-bb40-7ac2a0e1a894" }
+startup_timeout_sec = 20
+tool_timeout_sec = 120
+
+[projects.'C:\Users\Lenovo\.codex']
+trust_level = "untrusted"
+
+[projects.'C:\Users\Lenovo']
+trust_level = "untrusted"
+
+[projects.'\\?\D:\workspace\hhsy\collect']
+trust_level = "untrusted"
+
+[projects.'D:\workspace\easy-draw']
+trust_level = "trusted"
+
+[projects.'\\?\D:\workspace\easy-project']
+trust_level = "trusted"
+
+[projects.'\\?\D:\workspace\easy-case']
+trust_level = "trusted"
+
+[projects.'\\?\D:\workspace\hhsy\sellpower']
+trust_level = "untrusted"
+
+[projects.'D:\workspace\drawio-main']
+trust_level = "untrusted"
+
+[projects.'D:\workspace\douyin']
+trust_level = "trusted"
+
+[projects.'\\?\D:\workspace\easy-draw']
+trust_level = "trusted"
+
+[notice.model_migrations]
+"gpt-5.1-codex-max" = "gpt-5.2-codex"
+
+[mcp_servers.sequential_thinking]
+command = "cmd"
+args = [
+  "/c",
+  "npx",
+  "-y",
+  "@modelcontextprotocol/server-sequential-thinking"
+]
+startup_timeout_sec = 180
+tool_timeout_sec = 120
+
