@@ -14,4 +14,5 @@
 
 ---
 
+Prompt提示词：
 接下来我会一一实现task.md中的各个任务，当我完成一个任务的代码编写后会告诉你：“检查任务XX”，你要根据requirements.md、design.md、tasks.md中的内容来检查是否按文档的要求实现了tasks.md中的任务内容，并把该任务的实现细节按tasks-detail.md中的格式进行编写。注意：你只能修改tasks-detail.md中的内容，其他文件的修改都不可以（包括tasks.md）,如果有哪项任务没有完成，则在"待修复问题列表"表格中说明
